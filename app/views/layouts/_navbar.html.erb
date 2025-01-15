@@ -1,0 +1,14 @@
+<nav class="navbar navbar-light bg-light py-3">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="navbar-brand" href="/">ExactRx</a>
+
+    <div class="d-flex align-items-center">
+      <% if user_signed_in? %>
+        <span class="navbar-text" style="margin-right: 10px;">
+          <%= current_user.email %>
+        </span>
+        <%= link_to "Logout", destroy_user_session_path, class: "btn btn-outline-danger" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
