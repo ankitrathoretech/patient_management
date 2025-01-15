@@ -1,7 +1,31 @@
 <%= simple_form_for @patient do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :email %>
-  <%= f.input :next_appointment %>
-  <%= f.button :submit %>
+  <% if @patient.errors.any? %>
+    <div class="alert alert-danger">
+      <h4>There were errors:</h4>
+      <ul>
+        <% @patient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.input :first_name, label: 'First Name', input_html: { class: 'form-control' }, required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :last_name, label: 'Last Name', input_html: { class: 'form-control' }, required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :email, label: 'Email', input_html: { class: 'form-control' }, required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :next_appointment, as: :datetime, label: 'Next Appointment', 
+                input_html: { class: 'form-control' }, required: false %>
+  </div>
+
+  <%= f.button :submit, 'Save', class: 'btn btn-primary' %>
 <% end %>
