@@ -8,5 +8,6 @@
 <%= link_to 'Relevant Soon', relevant_patients_path %>
 
 <%= render 'patient' %>
+<%= link_to "Logout", destroy_user_session_path %>
 
 <%= paginate @patients %>

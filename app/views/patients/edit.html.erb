@@ -1,2 +1,2 @@
-<h1><%= @patient.new_record? ? 'New Patient' : 'Edit Patient' %></h1>
+<h1><%= @patient.new_record? ? 'New Patient' : @patient.full_name %></h1>
 <%= render 'form', patient: @patient %>
