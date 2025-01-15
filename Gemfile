@@ -68,3 +68,6 @@ end
 
 gem 'devise'
 gem 'kaminari'
+gem 'bootstrap', '~> 5.3'
+gem 'simple_form'
+gem 'sassc-rails'

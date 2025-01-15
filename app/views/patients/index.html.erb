@@ -1,0 +1,12 @@
+<h1>Patients</h1>
+<%= form_with url: patients_path, method: :get, local: true do |form| %>
+  <%= form.text_field :query, placeholder: 'Search by name or email', value: params[:query] %>
+  <%= form.submit 'Search' %>
+<% end %>
+
+<%= link_to 'New Patient', new_patient_path %>
+<%= link_to 'Relevant Soon', relevant_patients_path %>
+
+<%= render 'patient' %>
+
+<%= paginate @patients %>
