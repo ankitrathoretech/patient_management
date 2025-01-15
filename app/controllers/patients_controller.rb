@@ -1,10 +1,10 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_patient, only: %i[show edit update destroy]
+  before_action :set_patient, only: %i[edit update]
 
   def index
     @patients = Patient.order(:last_name).page(params[:page]).per(10)
-    @patients = @patients.where("name ILIKE ? OR email ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%") if params[:query].present?
+    @patients = @patients.where("first_name ILIKE ? OR email ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%") if params[:query].present?
   end
 
   def relevant
