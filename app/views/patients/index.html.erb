@@ -4,28 +4,9 @@
   <%= form.submit 'Search' %>
 <% end %>
 
-<%= link_to 'Create New Patient', new_patient_path, class: 'btn btn-primary' %>
-<%= link_to 'Relevant Soon', relevant_patients_path, class: 'btn btn-secondary' %>
+<%= link_to 'New Patient', new_patient_path %>
+<%= link_to 'Relevant Soon', relevant_patients_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Next Appointment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @patients.each do |patient| %>
-      <tr>
-        <td><%= link_to patient.first_name,  edit_patient_path(patient) %></td>
-        <td><%= patient.last_name %></td>
-        <td><%= patient.email %></td>
-        <td><%= patient.next_appointment %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'patient' %>
 
 <%= paginate @patients %>

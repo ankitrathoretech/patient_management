@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Next Appointment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= link_to "#{patient.first_name} #{patient.last_name}", edit_patient_path(patient) %></td>
+        <td><%= patient.email %></td>
+        <td>
+          <% if patient.next_appointment.present? %>
+            <%= patient.next_appointment.strftime("%Y-%m-%d %I:%M %p") %>
+          <% else %>
+            N/A
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

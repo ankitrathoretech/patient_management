@@ -5,27 +5,8 @@
   <%= form.submit 'Search', class: 'btn btn-primary' %>
 <% end %>
 
-<%= link_to 'All Patients', patients_path, class: 'btn btn-secondary mb-3' %>
+<%= link_to 'All Patients', patients_path %>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Next Appointment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @patients.each do |patient| %>
-      <tr>
-        <td><%= link_to patient.first_name, edit_patient_path(patient) %></td>
-        <td><%= patient.last_name %></td>
-        <td><%= patient.email %></td>
-        <td><%= patient.next_appointment.present? ? l(patient.next_appointment, format: :long) : 'N/A' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'patient' %>
 
 <%= paginate @patients %>
