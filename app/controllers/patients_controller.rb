@@ -3,7 +3,7 @@ class PatientsController < ApplicationController
   before_action :set_patient, only: %i[edit update]
 
   def index
-    @patients = Patient.order(:last_name).page(params[:page]).per(10)
+    @patients = Patient.order(:first_name).page(params[:page]).per(10)
     @patients = @patients.where("first_name ILIKE ? OR email ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%") if params[:query].present?
   end
 
