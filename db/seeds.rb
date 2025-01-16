@@ -9,3 +9,14 @@
 #   end
 
 User.create(email: "user@gmail.com", password: "user123", password_confirmation: "user123")
+
+20.times do
+  Patient.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    next_appointment: Faker::Date.forward(days: rand(30..180)),
+  )
+end
+
+puts "Created 20 patients"
