@@ -13,7 +13,7 @@ RSpec.describe PatientsController, type: :controller do
 
     it 'assigns patients and renders the index template' do
       get :index, params: { page: 1 }
-      expect(assigns(:patients)).to eq(Patient.order(:last_name).page(1).per(10))
+      expect(assigns(:patients)).to eq(Patient.order(:first_name).page(1).per(10))
       expect(response).to render_template(:index)
     end
 
